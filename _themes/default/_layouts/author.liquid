@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+  {% include '_partials/_head' %}
+
+  <body class="bg-white">
+
+    {% include '_partials/_nav' %}
+    
+    <div class="container py-5">
+
+      <div class="row no-gutters align-items-center mb-3">
+
+          {% if page.author_image != nil %}
+            <div class="col-auto mr-3 mb-1 mb-sm-0">
+              <img src="{{ page.author_image }}" alt="Picture of {{ page.author }}" class="d-block rounded-circle" width="100" />
+            </div>
+          {% endif %}
+
+          <div class="col-auto mr-auto">
+            <h3 class="mb-0">{{ page.title }}</h3>
+          </div>
+      </div>
+      
+      <!-- Content here -->
+      {{ page.content }}
+
+    </div>
+    
+    {% include '_partials/_footer' %}
+
+  </body>
+</html>

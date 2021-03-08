@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+  {% include '_partials/_head' %}
+
+  <body class="bg-white">
+
+    {% include '_partials/_nav' %}
+    
+    <div class="container py-5">
+
+      <section class="mb-5">
+        <h3 class="mb-3">{{ paginator.associated_tag.name }} Posts</h3>
+        <!-- Content here -->
+        {{ page.content }}
+      </section>
+
+      <!-- This loops through the paginated posts -->
+      {% for post in paginator.posts %}
+        {% include '_partials/_post-teaser' %}
+      {% endfor %}
+
+      {% if paginator.previous_page != nil or paginator.next_page != nil %}
+        {% include '_partials/_paging' %}
+      {% endif %}
+
+    </div>
+
+    {% include '_partials/_footer' %}
+
+  </body>
+</html>
